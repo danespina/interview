@@ -1,3 +1,3 @@
 require 'geocoder'
 
-Geocoder.configure(lookup: :geocoder_ca, timeout: 5)
+Geocoder.configure(lookup: :esri, timeout: 10)

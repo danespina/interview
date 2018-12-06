@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-md-offset-4 col-md-4">
       <h1 class="bg-primary text-center p25">
-        Bootstrapped!
+        <ul>
+          <% @addresses.each do |addr| %>
+          <li><%= "#{addr[:latitude]}, #{addr[:longitude]}, #{addr.rev_code}" %></li>
+          <% end %>
+        </ul>
       </h1>
     </div>
   </div>
