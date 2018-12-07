@@ -4,7 +4,7 @@
       <h1 class="bg-primary text-center p25">
         <ul>
           <% @addresses.each do |addr| %>
-          <li><%= "#{addr[:latitude]}, #{addr[:longitude]}, #{addr.rev_code}" %></li>
+          <li><%= "#{addr.lat}, #{addr.lng}, #{addr.full_address}, #{addr.miles_to(@target)}" %></li>
           <% end %>
         </ul>
       </h1>

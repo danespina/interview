@@ -1,7 +1,7 @@
 RSpec.describe Address do
   let(:full_address) { '1600 Pennsylvania Avenue NW Washington, D.C. 20500 U.S.' }
-  let(:latitude) { 40.181306 }
-  let(:longitude) { -80.265949 }
+  let(:lat) { 40.181306 }
+  let(:lng) { -80.265949 }
 
   subject(:address) { described_class.new }
 
@@ -11,7 +11,7 @@ RSpec.describe Address do
 
     it 'geocodes with Geocoder API' do
       expect(Geocoder).to receive(:search).with(full_address).and_return result
-      address.geocode
+      address.code
     end
 
     it 'is geocoded' do
@@ -35,8 +35,8 @@ RSpec.describe Address do
     let(:result) { [ double(data: payload) ] }
 
     it 'reverse geocodes with Geocoder API' do
-      expect(Geocoder).to receive(:search).with("#{latitude},#{longitude}").and_return result
-      address.reverse_geocode
+      expect(Geocoder).to receive(:search).with("#{lat},#{lng}").and_return result
+      address.rev_code
     end
 
     it 'is reverse geocoded' do
