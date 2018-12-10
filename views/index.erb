@@ -1,12 +1,27 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-offset-4 col-md-4">
-      <h1 class="bg-primary text-center p25">
-        <ul>
-          <% @addresses.each do |addr| %>
-          <li><%= "#{addr.lat}, #{addr.lng}, #{addr.full_address}, #{addr.miles_to(@target)}" %></li>
-          <% end %>
-        </ul>
+    <div class="col-md-offset-2 col-md-8">
+      <h3 class="bg-primary text-center p25 table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="text-center"scope="col">Latitude</th>
+              <th class="text-center"scope="col">Longitude</th>
+              <th class="text-center"scope="col">Full Address</th>
+              <th class="text-center"scope="col">Miles to White House</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @addresses.each do |addr| %>
+            <tr>
+              <td><%= "#{addr.lat}" %></td>
+              <td><%= "#{addr.lng}" %></td>
+              <td><%= "#{addr.full_address}" %></td>
+              <td><%= "#{addr.miles_to(@target)}" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
       </h1>
     </div>
   </div>

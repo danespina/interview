@@ -20,11 +20,15 @@ class Main < Sinatra::Base
     Address.new(coords[:lat], coords[:lng])
   end
 
+  white_house = Address.new(nil, nil, '1600 Pennsylvania Avenue NW Washington, D.C. 20500')
+
+  sorted_addresses = sample_addresses.sort_by { |addr| addr.miles_to(white_house)}
+
 
   get '/' do
 
-    @addresses = sample_addresses
-    @target = Address.new(nil, nil, '1600 Pennsylvania Avenue NW Washington, D.C. 20500')
+    @addresses = sorted_addresses
+    @target = white_house
     # @addresses = Address.all
     erb :index #, locals: { address: address }
   end
