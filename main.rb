@@ -1,11 +1,7 @@
 require 'sinatra'
 require 'sinatra/base'
-# require 'sinatra/activerecord'
 Dir['./lib/*.rb'].each { |f| require f }
 
-# configure :development, :test do
-#   set :database, {adapter: 'sqlite3', database: 'interview.db'}
-# end
 
 class Main < Sinatra::Base
   sample_addresses = [
@@ -29,7 +25,6 @@ class Main < Sinatra::Base
 
     @addresses = sorted_addresses
     @target = white_house
-    # @addresses = Address.all
     erb :index #, locals: { address: address }
   end
 end

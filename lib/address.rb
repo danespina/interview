@@ -1,25 +1,14 @@
-# require 'active_record'
 require_relative 'geocoding'
 
-# ActiveRecord::Base.establish_connection(
-#   :adapter => 'sqlite3',
-#   :database =>  'interview.db'
-# )
-
-class Address #< ActiveRecord::Base
-  # extend Geocoder::Model::ActiveRecord
+class Address
   attr_accessor :lat, :lng, :full_address
-  # reverse_geocoded_by :latitude, :longitude
-  # geocoded_by :address
-  # after_validation :geocode
-  # after_validation :reverse_geocode
 
   def initialize(lat = nil, lng = nil, full_address = nil)
     @lat = lat
     @lng = lng
     @full_address = full_address
     self.code unless self.reverse_geocoded?
-    self.rev_code unless self.geocoded? 
+    self.rev_code unless self.geocoded?
   end
 
   def geocoded?

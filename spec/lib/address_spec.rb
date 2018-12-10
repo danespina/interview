@@ -6,7 +6,7 @@ RSpec.describe Address do
   subject(:address) { described_class.new }
 
   describe 'geocoding' do
-    let(:payload) {{  'longitude' => longitude, 'latitude' => latitude }}
+    let(:payload) {{  'longitude' => lng, 'latitude' => lat }}
     let(:result) { [ double(data: payload) ] }
 
     it 'geocodes with Geocoder API' do
